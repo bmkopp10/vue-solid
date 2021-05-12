@@ -1,18 +1,23 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+    <div class="home">
+        <b-button id="test-alert-button" @click="() => show('this is an alert')">Alert!</b-button>
+    </div>
 </template>
 
 <script lang="ts">
-import HelloWorld from '@/components/HelloWorld.vue';
-import {defineComponent} from "@vue/composition-api"; // @ is an alias to /src
+import {defineComponent} from "@vue/composition-api";
+import useAlert from "@/composables/useAlert"; // @ is an alias to /src
 
 export default defineComponent({
-  name: 'Home',
-  components: {
-    HelloWorld,
-  },
+    name: 'Home',
+    components: {},
+    setup() {
+
+        const { show } = useAlert()
+
+        return {
+            show
+        }
+    }
 });
 </script>
