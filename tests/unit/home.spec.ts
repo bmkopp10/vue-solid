@@ -3,8 +3,10 @@ import CompositionApi from "@vue/composition-api";
 import Home from "@/views/Home.vue";
 import {BootstrapVue} from "bootstrap-vue";
 import Vue from "vue";
-import useAlert from "@/composables/useAlert";
 
+function useAlert() {
+    return  {show: jest.fn()}
+}
 
 describe('Home.vue', () => {
     const localVue = createLocalVue()
@@ -16,6 +18,9 @@ describe('Home.vue', () => {
     beforeEach(() => {
         wrapper = shallowMount(Home, {
             localVue,
+            // methods: {
+            //     useAlert
+            // }
         })
 
 
